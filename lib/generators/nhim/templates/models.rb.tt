@@ -1,0 +1,40 @@
+class <%= migration_class_name %> < ActiveRecord::Migration<%= migration_version %>
+  def change
+
+    create_table :nhim_folders do |t|
+      t.timestamps null: false
+      t.integer :ownerable_id
+      t.string :ownerable_type
+      t.string :slug, null: false
+      t.string :name, null: false
+      t.integer :parent_id
+    end
+
+    create_table :nhim_labels do |t|
+      t.timestamps null: false
+      t.integer :ownerable_id
+      t.string :ownerable_type
+      t.string :slug, null: false
+      t.string :name, null: false
+      t.string :color, null: false
+    end
+
+    create_table :nhim_files do |t|
+      t.timestamps null: false
+      t.integer :ownerable_id
+      t.string :ownerable_type
+      t.string :slug, null: false
+      t.string :name, null: false
+      t.text :content
+      t.string :access_key
+      t.integer :folder_id
+    end
+
+    create_table :nhim_file_labels do |t|
+      t.timestamps null: false
+      t.integer :file_id
+      t.integer :label_id
+    end
+
+  end
+end

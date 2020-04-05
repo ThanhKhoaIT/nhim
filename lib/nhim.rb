@@ -1,6 +1,10 @@
-require "nhim/version"
+require 'haml'
+require 'friendly_id'
 
-module Nhim
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require 'nhim/version'
+require 'nhim/engine'
+require 'nhim/error'
+require 'nhim/config'
+require 'nhim/form_builder'
+
+module Nhim; end

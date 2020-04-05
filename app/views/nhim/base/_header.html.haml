@@ -1,0 +1,11 @@
+#header
+  #logo
+    = image_tag 'nhim/logo64.png'
+    %span= Nhim.config.name
+
+  #search-box
+    = text_field :search, :keyword, placeholder: 'Search', id: 'search-input'
+
+  - if nhim_current_user
+    #profile
+      %span= nhim_current_user.try(Nhim.config.current_user_name_method)

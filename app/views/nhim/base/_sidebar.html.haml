@@ -1,0 +1,44 @@
+#sidebar
+  = link_to 'New', '#new-dropdown', id: 'add-main', data: { toggle: 'dropdown-actions' }
+  %ul.dropdown-actions#new-dropdown
+    %li
+      = link_to '#add-folder-modal', data: { toggle: :modal } do
+        .icon= image_tag('nhim/folder.png')
+        %span.text Folder
+    %li
+      = link_to '#' do
+        .icon= image_tag('nhim/file.png')
+        %span.text File
+
+  %ul#sidebar-items
+    %li
+      = link_to '#' do
+        = image_tag 'nhim/recent.png'
+        %span Recent
+    %li
+      = link_to '#' do
+        = image_tag 'nhim/star.png'
+        %span Started
+    %li
+      = link_to '#' do
+        = image_tag 'nhim/trash.png'
+        %span Deleted
+
+  .modals
+    .modal.fade#add-folder-modal
+      .modal-dialog.modal-sm
+        .modal-content
+          .modal-header
+            %h5.modal-title New folder
+            %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+              %span{"aria-hidden" => "true"} ×
+          .modal-body#new-folder-form
+            = render 'nhim/folders/new_folder', folder: @new_folder
+          .modal-footer
+            %button.btn{ data: { dismiss: :modal }, type: :button } Cancel
+            %button.btn.btn-primary{ data: { type: :submit }, type: :button } Create
+      :javascript
+        $('#add-folder-modal').on('shown.bs.modal', function() {
+          $('#folder_name').focus();
+          $('#folder_name').select();
+        });

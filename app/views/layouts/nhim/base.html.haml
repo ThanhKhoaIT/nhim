@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    = csrf_meta_tags
+    = stylesheet_link_tag 'nhim'
+    = javascript_include_tag 'nhim'
+    %link{href: asset_path('nhim/logo32.png'), rel: :icon, type: 'image/x-icon'}
+    %title #{Nhim.config.name}'s Notes
+
+  %body#nhim-scoped
+    = render 'header'
+    = render 'sidebar'
+    #container
+      = render 'breadcrumb'
+      = yield

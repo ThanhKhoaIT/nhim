@@ -1,0 +1,13 @@
+- folders, files = get_items(folder)
+
+- if folders.empty? && files.empty?
+  %li.empty This empty folder!
+- else
+  %li.header
+    .col.name Name
+    - if nhim_has_owner?
+      .col.owner Owner
+    .col.updated_at Last modified
+
+  = render folders
+  = render files

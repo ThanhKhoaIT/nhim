@@ -1,0 +1,6 @@
+%li
+  .col.icon= image_tag 'nhim/file.png'
+  %span.col.name= file.name
+  - if nhim_has_owner?
+    %span.col.owner= file.owner_name
+  %span.col.updated_at= nhim_datetime_display file.updated_at

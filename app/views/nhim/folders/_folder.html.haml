@@ -1,0 +1,6 @@
+%li{ data: { link: nhim_folder_path(folder) } }
+  .col.icon= image_tag 'nhim/folder.png'
+  %span.col.name= folder.name
+  - if nhim_has_owner?
+    %span.col.owner= folder.owner_name
+  %span.col.updated_at= nhim_datetime_display folder.updated_at
