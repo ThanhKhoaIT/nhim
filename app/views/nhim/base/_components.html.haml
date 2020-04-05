@@ -1,0 +1,30 @@
+.components
+  .modals
+    .modal.fade#add-folder-modal
+      .modal-dialog.modal-sm
+        .modal-content
+          .modal-header
+            %h5.modal-title New folder
+            %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+              %span{"aria-hidden" => "true"} ×
+          .modal-body#new-folder-form
+            = render 'nhim/folders/new_folder', folder: @new_folder
+          .modal-footer
+            %button.btn{ data: { dismiss: :modal }, type: :button } Cancel
+            %button.btn.btn-primary{ data: { type: :submit }, type: :button } Create
+      :javascript
+        $('#add-folder-modal').on('shown.bs.modal', function() {
+          $('#folder_name').focus();
+          $('#folder_name').select();
+        });
+
+  #actions
+    %ul
+      %li
+        = link_to '#' do
+          .icon= image_tag 'nhim/rename.png'
+          .name Rename
+      %li
+        = link_to '#' do
+          .icon= image_tag 'nhim/remove.png'
+          .name Remove
