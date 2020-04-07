@@ -1,7 +1,5 @@
-- folders, files = get_items(folder)
-
-- if folders.empty? && files.empty?
-  %li.empty This empty folder!
+- if current_folder_serializer.is_empty?
+  %li.empty Empty folder!
 - else
   %li.header
     .col.name Name
@@ -9,5 +7,5 @@
       .col.owner Owner
     .col.updated_at Last modified
 
-  = render folders
-  = render files
+  = render current_folder_serializer.subfolders
+  = render current_folder_serializer.files

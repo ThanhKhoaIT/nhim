@@ -1,3 +1,8 @@
+function setCurrentFolder(folder) {
+  window.currentFolder = folder;
+  $('#new_parent_id').val(this.currentFolder.id)
+}
+
 function closeModal() {
   $('.modal.show').modal('hide');
 }
@@ -26,4 +31,10 @@ function hideActions() {
 
 function min(numA, numB) {
   return numA < numB ? numA : numB;
+}
+
+function selectedItemType() {
+  if ($('ul#main-list li.selected').length === 0) return null;
+  if ($('ul#main-list li.selected').length > 1) return 'multiple';
+  return $('ul#main-list li.selected').data('itemtype');
 }

@@ -12,14 +12,5 @@ module Nhim
 
     validates :name, presence: true
 
-    def breadcrumbs
-      items = [self]
-      loop do
-        break if items.last.parent.nil?
-        items << items.last.parent
-      end
-      items.reverse
-    end
-
   end
 end

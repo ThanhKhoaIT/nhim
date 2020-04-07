@@ -4,10 +4,17 @@ module Nhim
     before_action :initialize_basic_variables!
 
     def index
+      respond_to do |f|
+        f.html
+        f.js
+      end
     end
 
     def show
-      render action: :index
+      respond_to do |f|
+        f.html { render action: :index }
+        f.js { render action: :index }
+      end
     end
 
     def create
@@ -15,6 +22,7 @@ module Nhim
       @folder = Folder.new(folder_params)
       @folder.ownerable = nhim_has_owner? ? nhim_current_user : nil
       @folder.save
+      assign_current_folder(@folder.parent)
       respond_to(&:js)
     end
 
@@ -29,24 +37,8 @@ module Nhim
 
     private
 
-    helper_method :current_folder
-    def current_folder
-      return if params[:id].blank?
-      @current_folder ||= ::Nhim::Folder.friendly.find(params[:id])
-    end
-
-    helper_method :get_items
-    def get_items(folder)
-      if folder.nil?
-        return ::Nhim::Folder.in_root, ::Nhim::File.in_root
-      else
-        return folder.subfolders, folder.files
-      end
-    end
-
     def initialize_basic_variables!
       @new_folder = Folder.new(parent: current_folder)
-      @breadcrumbs = current_folder&.breadcrumbs || []
     end
 
   end

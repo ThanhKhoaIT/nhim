@@ -1,2 +1,5 @@
 %ul#main-list
-  = render 'items', folder: @current_folder
+  = render 'items'
+
+:javascript
+  setCurrentFolder(#{raw current_folder_js});

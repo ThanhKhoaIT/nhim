@@ -1,0 +1,1 @@
+window.nhimConfig = window.nhimConfig || {};

@@ -13,15 +13,11 @@
             %button.btn{ data: { dismiss: :modal }, type: :button } Cancel
             %button.btn.btn-primary{ data: { type: :submit }, type: :button } Create
       :javascript
-        $('#add-folder-modal').on('shown.bs.modal', function() {
-          $('#folder_name').focus();
-          $('#folder_name').select();
-        });
 
   #actions
     %ul
       %li
-        = link_to '#' do
+        = link_to '#', data: { action: :rename } do
           .icon= image_tag 'nhim/rename.png'
           .name Rename
       %li

@@ -1,5 +1,4 @@
 module Nhim
-
   class Config
 
     attr_accessor :name

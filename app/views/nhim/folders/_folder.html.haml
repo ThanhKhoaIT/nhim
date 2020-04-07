@@ -1,4 +1,4 @@
-%li{ data: { link: nhim_folder_path(folder) } }
+%li{ data: { itemtype: :folder, link: nhim_folder_path(folder) } }
   .col.icon= image_tag 'nhim/folder.png'
   %span.col.name= folder.name
   - if nhim_has_owner?

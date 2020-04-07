@@ -32,6 +32,7 @@ module Nhim
         {
           value: current_value,
           placeholder: options[:placeholder],
+          id: options[:id],
         }
       end
 
