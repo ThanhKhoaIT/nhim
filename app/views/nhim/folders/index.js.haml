@@ -1,5 +1,4 @@
-$('#main-list').html("#{j render 'items'}");
 $('#main-breadcrumb').replaceWith("#{j render partial: 'nhim/base/breadcrumb'}");
 
 history.pushState({ path: '#{request.path}' }, '#{current_folder_serializer.name}', '#{current_folder_serializer.link}');
-setCurrentFolder(#{raw current_folder_js});
+changeFolder(#{raw current_folder_js});

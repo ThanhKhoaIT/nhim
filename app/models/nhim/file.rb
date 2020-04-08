@@ -4,6 +4,7 @@ module Nhim
     include ::Nhim::OwnerAndSlugConcern
 
     belongs_to :folder
+    alias_method :parent, :folder
 
     has_many :file_labels
     has_many :labels, through: :file_labels

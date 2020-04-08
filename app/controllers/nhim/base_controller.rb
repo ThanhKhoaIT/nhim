@@ -30,7 +30,7 @@ module Nhim
 
     helper_method :current_folder_serializer
     def current_folder_serializer
-      @current_folder_serializer ||= ::Nhim::FolderSerializer.new(current_folder)
+      @current_folder_serializer ||= ::Nhim::Serializers::FolderSerializer.new(current_folder)
     end
 
     helper_method :current_folder_js
@@ -39,7 +39,7 @@ module Nhim
     end
 
     def assign_current_folder(folder)
-      @current_folder_serializer = ::Nhim::FolderSerializer.new(folder)
+      @current_folder_serializer = ::Nhim::Serializers::FolderSerializer.new(folder)
     end
 
   end

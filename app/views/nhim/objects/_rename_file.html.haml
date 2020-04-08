@@ -1,0 +1,3 @@
+= nhim_remote_form_for @object, url: rename_nhim_object_path(type: @object_type, id: @object_id), method: :patch do |f|
+  = f.input :name, label: false, placeholder: 'File name', id: :new_name, name: :new_name
+  = f.submit 'Submit', hidden: true

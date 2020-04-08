@@ -29,15 +29,18 @@ module Nhim
       attr_reader :options
 
       def input_options
-        {
+        final_options = {
           value: current_value,
           placeholder: options[:placeholder],
-          id: options[:id],
         }
+        final_options[:id] = options[:id] if options[:id]
+        final_options[:name] = options[:name] if options[:name]
+        final_options
       end
 
       def current_value
-        object.send(attribute_name) ||
+        options[:value] ||
+          object.try(attribute_name) ||
           options[:default] ||
           object.class.columns_hash[attribute_name]&.default
       end

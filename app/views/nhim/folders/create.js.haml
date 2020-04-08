@@ -1,8 +1,7 @@
 - if @folder.persisted?
   closeModal();
   nhimNotify('Add #{@folder.name} is success!');
-  $('#main-list').html("#{j render 'items'}");
-  setCurrentFolder(#{raw current_folder_js});
+  changeFolder(#{raw current_folder_js});
 - else
   $('#new-folder-form').html("#{j render 'new_folder', folder: @folder}");
   nhimNotify('Failed!');

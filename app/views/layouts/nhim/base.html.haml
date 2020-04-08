@@ -2,8 +2,9 @@
 %html
   %head
     = csrf_meta_tags
-    = stylesheet_link_tag 'nhim'
+    = render 'js_config'
     = javascript_include_tag 'nhim'
+    = stylesheet_link_tag 'nhim'
     %link{href: asset_path('nhim/logo32.png'), rel: :icon, type: 'image/x-icon'}
     %title #{Nhim.config.name}'s Notes
 

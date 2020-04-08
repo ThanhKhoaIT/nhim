@@ -38,20 +38,3 @@ $(document).delegate('a[data-remote]', 'click', function(event) {
 $(document).delegate('html', 'contextmenu', function(event) {
   event.preventDefault();
 });
-
-$(document).on('scroll', function(event) {
-  hideActions();
-});
-
-$(document).delegate('#main-list li[data-link]', 'contextmenu', function(event) {
-  event.preventDefault();
-  $('#main-list li').removeClass('selected');
-  $(this).addClass('selected');
-  showActions(event);
-});
-
-$(document).delegate('a[data-action="rename"]', 'click', function(event) {
-  event.preventDefault();
-  var selectedType = selectedItemType();
-  console.log(selectedType);
-});

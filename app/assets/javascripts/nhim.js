@@ -3,7 +3,8 @@
 //= require nhim/vendor/popper.min
 //= require nhim/vendor/bootstrap.min
 //= require nhim/vendor/bootstrap-notify.min
-//= require nhim/config
 //= require nhim/functions
 //= require nhim/events
+//= require nhim/actions
+//= require nhim/modals
 //= require nhim/base

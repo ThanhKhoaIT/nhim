@@ -5,14 +5,14 @@ module Nhim
 
     def index
       respond_to do |f|
-        f.html
+        f.html { render layout: !request.xhr? }
         f.js
       end
     end
 
     def show
       respond_to do |f|
-        f.html { render action: :index }
+        f.html { render action: :index, layout: !request.xhr? }
         f.js { render action: :index }
       end
     end

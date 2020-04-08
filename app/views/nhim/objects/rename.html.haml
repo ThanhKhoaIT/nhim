@@ -1,17 +1,12 @@
-.modal.fade#edit-folder-modal
+.modal.fade.rename-object-modal
   .modal-dialog.modal-sm
     .modal-content
       .modal-header
-        %h5.modal-title Rename folder
+        %h5.modal-title Rename
         %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
           %span{"aria-hidden" => "true"} ×
-      .modal-body#edit-folder-form
-        = render 'nhim/folders/edit_form', folder: folder
+      .modal-body#rename-form
+        = render "nhim/objects/rename_#{@object_type}", object: @object
       .modal-footer
         %button.btn{ data: { dismiss: :modal }, type: :button } Cancel
         %button.btn.btn-primary{ data: { type: :submit }, type: :button } Update
-
-:javascript
-  $('#edit-folder-modal').on('shown.bs.modal', function() {
-    $('#folder_name').focus().select();
-  });

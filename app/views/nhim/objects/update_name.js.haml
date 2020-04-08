@@ -1,0 +1,7 @@
+- if @object.errors.any?
+  $('#rename-form').html("#{j render "nhim/objects/rename_#{@object_type}", object: @object}");
+  nhimNotify('Failed!');
+- else
+  closeModal();
+  nhimNotify('Rename to #{@object.name} is success!');
+  changeFolder(#{raw current_folder_js});

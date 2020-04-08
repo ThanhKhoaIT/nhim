@@ -16,12 +16,17 @@ module Nhim
       end
     end
 
+    def hidden(attribute_name, options = {}, &block)
+      options[:as] = :hidden
+      input(attribute_name, options, &block)
+    end
+
     private
 
     def detect_input_builder(attribute_name, options)
       input_type = options[:as] || object.class.columns_hash[attribute_name.to_s].type || :string
       input_class = "::Nhim::FormBuilders::#{input_type.to_s.classify}Input".safe_constantize
-      raise ::Nhim::InputTypeNotSupport.new(input_type, attribute_name) if input_class.nil?
+      raise ::Nhim::InputTypeNotSupportError.new(input_type, attribute_name) if input_class.nil?
       input_class.new(self, attribute_name, options)
     end
 

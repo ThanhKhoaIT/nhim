@@ -1,4 +1,4 @@
 = nhim_remote_form_for folder do |f|
   = f.input :name, default: 'Untitled folder', label: false, placeholder: 'Name', id: :new_folder_name
-  = f.input :parent_id, as: :hidden, id: :new_parent_id
+  = f.hidden :parent_id, id: :new_parent_id
   = f.submit 'Submit', hidden: true
