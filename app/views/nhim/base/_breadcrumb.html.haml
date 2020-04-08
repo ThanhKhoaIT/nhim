@@ -1,7 +1,5 @@
 %nav#main-breadcrumb
   %ol.breadcrumb
-    %li.breadcrumb-item
-      = link_to 'Home', nhim_folders_path, data: { remote: true }
-    - current_folder_serializer.breadcrumbs.each do |breadcrumb|
+    - @breadcrumbs.each do |name, link|
       %li.breadcrumb-item
-        = link_to breadcrumb.name, nhim_folder_path(breadcrumb), data: { remote: true }
+        = link_to name, link, data: { remote: true }

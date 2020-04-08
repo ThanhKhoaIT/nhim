@@ -3,11 +3,6 @@ $(document).delegate('html', 'click', function(event) {
   $('.dropdown-actions').fadeOut('fast');
 });
 
-$(document).delegate('html', 'click', function(event) {
-  if (event.target.nodeName === 'LI') return;
-  hideActions();
-});
-
 $(document).delegate('a[data-toggle="dropdown-actions"]', 'click', function(event) {
   event.preventDefault();
   var selector = $(this).attr('href');

@@ -2,6 +2,7 @@
   closeModal();
   nhimNotify('Add #{@folder.name} is success!');
   changeFolder(#{raw current_folder_js});
+  $('#new_folder_name').val('Untitled folder');
 - else
   $('#new-folder-form').html("#{j render 'new_folder', folder: @folder}");
   nhimNotify('Failed!');

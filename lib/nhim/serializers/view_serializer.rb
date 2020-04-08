@@ -4,7 +4,8 @@ module Nhim
 
       def to_json
         {
-          object_rename_path: nhim_routes.rename_nhim_object_path,
+          rename_object_path: nhim_routes.rename_nhim_object_path,
+          remove_object_path: nhim_routes.remove_nhim_object_path(:js),
         }.to_json
       end
 

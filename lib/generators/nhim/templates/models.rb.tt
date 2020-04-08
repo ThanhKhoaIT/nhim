@@ -3,6 +3,7 @@ class <%= migration_class_name %> < ActiveRecord::Migration<%= migration_version
 
     create_table :nhim_folders do |t|
       t.timestamps null: false
+      t.datetime :deleted_at
       t.integer :ownerable_id
       t.string :ownerable_type
       t.string :slug, null: false
@@ -21,6 +22,7 @@ class <%= migration_class_name %> < ActiveRecord::Migration<%= migration_version
 
     create_table :nhim_files do |t|
       t.timestamps null: false
+      t.datetime :deleted_at
       t.integer :ownerable_id
       t.string :ownerable_type
       t.string :slug, null: false

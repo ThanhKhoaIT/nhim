@@ -1,7 +1,8 @@
 #header
   #logo
-    = image_tag 'nhim/logo64.png'
-    %span= Nhim.config.name
+    = link_to root_path do
+      = image_tag 'nhim/logo64.png'
+      %span= Nhim.config.name
 
   #search-box
     = text_field :search, :keyword, placeholder: 'Search', id: 'search-input'

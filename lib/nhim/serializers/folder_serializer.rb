@@ -28,12 +28,14 @@ module Nhim
       end
 
       def breadcrumbs
-        return [] if folder.nil?
-        items = [folder]
+        items = []
+        last_folder = folder
         loop do
-          break if items.last.parent.nil?
-          items << items.last.parent
+          break if last_folder.nil?
+          items << [last_folder.name, nhim_routes.nhim_folder_path(last_folder)]
+          last_folder = last_folder.parent
         end
+        items << ['Home', nhim_routes.nhim_folders_path]
         items.reverse
       end
 

@@ -1,0 +1,10 @@
+%ul#main-list.deleted{ data: { refresh: nhim_deleted_path } }
+  - if @deleted_folders.empty? & @deleted_files.empty?
+    %li.empty Empty items in trash!
+  - else
+    %li.header
+      .col.name Name
+      .col.updated_at Deleted at
+
+    = render partial: 'deleted_folder', collection: @deleted_folders, as: :folder
+    = render partial: 'deleted_file', collection: @deleted_files, as: :file

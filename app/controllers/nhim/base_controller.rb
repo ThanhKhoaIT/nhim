@@ -1,6 +1,8 @@
 module Nhim
   class BaseController < ApplicationController
 
+    before_action :initialize_basic_variables!
+
     helper ::Nhim::Engine.helpers
 
     layout :nhim_layout
@@ -40,6 +42,10 @@ module Nhim
 
     def assign_current_folder(folder)
       @current_folder_serializer = ::Nhim::Serializers::FolderSerializer.new(folder)
+    end
+
+    def initialize_basic_variables!
+      @new_folder = ::Nhim::Folder.new(parent: current_folder)
     end
 
   end

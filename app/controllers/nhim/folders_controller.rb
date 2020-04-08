@@ -1,7 +1,7 @@
 module Nhim
   class FoldersController < BaseController
 
-    before_action :initialize_basic_variables!
+    before_action :load_breadcrumbs!
 
     def index
       respond_to do |f|
@@ -19,26 +19,17 @@ module Nhim
 
     def create
       folder_params = params.require(:folder).permit(:parent_id, :name)
-      @folder = Folder.new(folder_params)
+      @folder = ::Nhim::Folder.new(folder_params)
       @folder.ownerable = nhim_has_owner? ? nhim_current_user : nil
       @folder.save
       assign_current_folder(@folder.parent)
       respond_to(&:js)
     end
 
-    def edit
-    end
-
-    def update
-    end
-
-    def destroy
-    end
-
     private
 
-    def initialize_basic_variables!
-      @new_folder = Folder.new(parent: current_folder)
+    def load_breadcrumbs!
+      @breadcrumbs = current_folder_serializer.breadcrumbs
     end
 
   end
