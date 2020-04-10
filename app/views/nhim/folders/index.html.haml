@@ -1,4 +1,4 @@
-%ul#main-list{ data: { refresh: current_folder_serializer.link } }
+%ul#main-list{ data: { refresh: current_folder_serializer.link, mode: :normal } }
   - if current_folder_serializer.is_empty?
     %li.empty Empty folder!
   - else

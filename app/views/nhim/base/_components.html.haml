@@ -15,12 +15,26 @@
       :javascript
 
   #actions
-    %ul
+    %ul{ data: { mode: :normal } }
       %li
         = link_to '#', data: { action: :rename } do
           .icon= image_tag 'nhim/rename.png'
           .name Rename
       %li
+        = link_to '#', data: { action: :star } do
+          .icon= image_tag 'nhim/star.png'
+          .name Add to Starred
+      %li.line
+      %li
         = link_to '#', data: { action: :remove } do
           .icon= image_tag 'nhim/remove.png'
           .name Remove
+    %ul{ data: { mode: :deleted } }
+      %li
+        = link_to '#', data: { action: :restore } do
+          .icon= image_tag 'nhim/restore.png'
+          .name Restore
+      %li
+        = link_to '#', data: { action: :remove } do
+          .icon= image_tag 'nhim/remove.png'
+          .name Remove forever

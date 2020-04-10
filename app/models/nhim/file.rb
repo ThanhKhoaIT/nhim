@@ -8,6 +8,7 @@ module Nhim
 
     has_many :file_labels
     has_many :labels, through: :file_labels
+    has_many :stars, as: :nhim_object
 
     default_scope { where(deleted_at: nil) }
     scope :deleted, -> { unscoped.where.not(deleted_at: nil) }

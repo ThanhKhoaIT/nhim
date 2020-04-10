@@ -12,13 +12,9 @@
 
   %ul#sidebar-items
     %li
-      = link_to '#' do
-        = image_tag 'nhim/recent.png'
-        %span Recent
-    %li
-      = link_to '#' do
+      = link_to nhim_starred_path do
         = image_tag 'nhim/star.png'
-        %span Started
+        %span Starred
     %li
       = link_to nhim_deleted_path do
         = image_tag 'nhim/trash.png'

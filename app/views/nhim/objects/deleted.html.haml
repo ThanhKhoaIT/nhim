@@ -1,4 +1,4 @@
-%ul#main-list.deleted{ data: { refresh: nhim_deleted_path } }
+%ul#main-list{ data: { refresh: nhim_deleted_path, mode: :deleted } }
   - if @deleted_folders.empty? & @deleted_files.empty?
     %li.empty Empty items in trash!
   - else

@@ -9,7 +9,7 @@
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
-  border-bottom: 1px solid #DADCE0;
+  border-bottom: 1px solid $border-color;
   background: #FFF;
 
   #logo {
@@ -136,7 +136,7 @@ nav#main-breadcrumb {
     background: #FFF;
     margin-bottom: 0px;
     border-radius: 0px;
-    border-bottom: 1px solid #DADCE0;
+    border-bottom: 1px solid $border-color;
     .breadcrumb-item + .breadcrumb-item::before {
       content: '›';
     }
@@ -156,10 +156,11 @@ ul#main-list {
   li {
     float: left;
     width: 100%;
-    border-bottom: 1px solid #DADCE0;
+    border-bottom: 1px solid $border-color;
     padding: 10px;
     font-size: 13px;
     user-select: none;
+    color: $text-color;
 
     &:last-child {
       border-bottom: none
@@ -174,6 +175,7 @@ ul#main-list {
 
     &.selected {
       background: #E9ECEF;
+      color: $selected-color;
     }
 
     &.empty {
@@ -182,6 +184,22 @@ ul#main-list {
       padding: 230px 0px 100px;
       background: url('nhim/empty.svg') no-repeat center center;
       background-size: 120px 120px;
+    }
+
+    &[data-starred="true"] {
+      .icon:after {
+        content: '★';
+        position: absolute;
+        bottom: -5px;
+        font-size: 11px;
+        background: #FFF;
+        width: 20px;
+        height: 20px;
+        border-radius: 55%;
+        text-align: center;
+        line-height: 20px;
+        right: -5px;
+      }
     }
 
     .col {
@@ -330,21 +348,28 @@ ul.dropdown-actions {
     li {
       float: left;
       width: 100%;
+
       &:hover {
         background: #EEE;
+      }
+
+      &.line {
+        border-bottom: 1px solid $border-color;
+        height: 1px;
+        margin: 5px 0px;
       }
 
       a {
         float: left;
         width: 100%;
-        padding: 7px 15px;
+        padding: 7px 15px 10px;
         color: #777;
       }
 
       .icon {
         float: left;
-        width: 20px;
-        height: 20px;
+        width: 17px;
+        height: 17px;
         img {
           width: 100%;
           height: 100%;

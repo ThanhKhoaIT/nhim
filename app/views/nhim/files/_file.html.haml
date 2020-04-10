@@ -1,4 +1,4 @@
-%li{ data: { itemtype: :file, link: nhim_file_path(file), id: file.id } }
+%li{ data: { itemtype: :file, id: file.id, dbclick: nhim_file_path(file), starred: file_is_starred.include?(file.id).to_s } }
   .col.icon= image_tag 'nhim/file.png'
   %span.col.name= file.name
   - if nhim_has_owner?

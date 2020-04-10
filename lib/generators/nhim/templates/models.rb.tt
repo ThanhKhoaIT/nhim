@@ -38,5 +38,13 @@ class <%= migration_class_name %> < ActiveRecord::Migration<%= migration_version
       t.integer :label_id
     end
 
+    create_table :nhim_stars do |t|
+      t.timestamps null: false
+      t.string :nhim_object_type, null: false
+      t.integer :nhim_object_id, null: false
+      t.string :ownerable_type
+      t.integer :ownerable_id
+    end
+
   end
 end

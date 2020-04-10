@@ -1,0 +1,12 @@
+%ul#main-list{ data: { refresh: nhim_starred_path, mode: :normal } }
+  - if @starred_folders.empty? & @starred_files.empty?
+    %li.empty Empty items in starred!
+  - else
+    %li.header
+      .col.name Name
+      - if nhim_has_owner?
+        .col.owner Owner
+      .col.updated_at Last modified
+
+    = render @starred_folders, as: :folder
+    = render @starred_files, as: :file

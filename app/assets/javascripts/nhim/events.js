@@ -14,15 +14,15 @@ $(document).delegate('.modal-content [data-type="submit"]', 'click', function(ev
   $(this).parents('.modal').find('form').submit();
 });
 
-$(document).delegate('#main-list li[data-link]', 'click', function(event) {
+$(document).delegate('#main-list li[data-dbclick]', 'click', function(event) {
   event.preventDefault();
   $('#main-list li').removeClass('selected');
   $(this).addClass('selected');
 });
 
-$(document).delegate('#main-list li[data-link]', 'dblclick', function(event) {
+$(document).delegate('#main-list li[data-dbclick]', 'dblclick', function(event) {
   event.preventDefault();
-  $.get($(this).data('link') + '.js');
+  $.get($(this).data('dbclick') + '.js');
 });
 
 $(document).delegate('a[data-remote]', 'click', function(event) {

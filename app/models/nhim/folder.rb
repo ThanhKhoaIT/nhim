@@ -5,6 +5,7 @@ module Nhim
 
     belongs_to :parent, class_name: 'Nhim::Folder'
 
+    has_many :stars, as: :nhim_object
     has_many :subfolders, foreign_key: :parent_id, class_name: 'Nhim::Folder'
     has_many :files
 
