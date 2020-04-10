@@ -20,9 +20,14 @@ $(document).delegate('#main-list li[data-dbclick]', 'click', function(event) {
   $(this).addClass('selected');
 });
 
-$(document).delegate('#main-list li[data-dbclick]', 'dblclick', function(event) {
+$(document).delegate('[data-dbclick]', 'dblclick', function(event) {
   event.preventDefault();
   $.get($(this).data('dbclick') + '.js');
+});
+
+$(document).delegate('[data-toggleclass]', 'click', function(event) {
+  event.preventDefault();
+  $(this).toggleClass($(this).data('toggleclass'));
 });
 
 $(document).delegate('a[data-remote]', 'click', function(event) {

@@ -68,7 +68,6 @@
 
   #add-main {
     display: table;
-    text-decoration: none;
     border: 1px solid transparent;
     border-radius: 30px !important;
     font-size: 13px;
@@ -89,10 +88,90 @@
     }
   }
 
+  #sidebar-tree-folder {
+    position: absolute;
+
+    &:before {
+      content: '►';
+      position: absolute;
+      font-size: 13px;
+      left: px;
+      top: 3px;
+      color: $text-color;
+    }
+
+    &.show {
+      &:before {
+        content: '▼';
+      }
+    }
+
+    &.show ~ ul#sidebar-tree {
+      display: block;
+      padding-left: 10px;
+      margin-top: 30px;
+      float: left;
+    }
+  }
+
+  ul#sidebar-tree {
+    display: none;
+    user-select: none;
+
+    li {
+      font-size: 13px;
+      margin-bottom: 0px !important;
+      position: relative;
+
+      ul {
+        display: none;
+        padding-left: 15px;
+      }
+
+      a.arrow {
+        position: absolute;
+        width: 10px;
+        left: 11px;
+        top: 6px;
+        cursor: pointer;
+
+        &:before {
+          content: '►';
+          width: 10px;
+          color: $text-color;
+          font-size: 10px;
+          margin-right: 5px;
+        }
+        &:hover + a.name {
+          background: #FFF;
+        }
+      }
+      a.arrow.show {
+        &:before {
+          content: '▼';
+        }
+        & ~ ul {
+          display: block;
+        }
+      }
+    }
+
+    a.name {
+      float: left;
+      width: 100%;
+      padding: 6px 0px 6px 25px;
+      border-radius: 20px;
+      color: $text-color;
+      &:hover {
+        background: #FFF;
+      }
+    }
+
+  }
+
   ul#sidebar-items {
     float: left;
     list-style: none;
-    margin-top: 45px;
     padding: 0px 15px;
 
     li {
@@ -247,7 +326,6 @@ ul#new-dropdown {
       float: left;
       width: 100%;
       color: #777;
-      text-decoration: none;
 
       &:hover {
         background: #EEE;
