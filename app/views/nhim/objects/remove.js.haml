@@ -1,5 +1,6 @@
 - if @object.deleted_at
   nhimNotify('Remove #{@object.name} is success!');
   changeFolder(#{raw current_folder_js});
+  window.mainTree.render();
 - else
   nhimNotify('Failed! (#{@object.errors.full_messages.join(', ')})');

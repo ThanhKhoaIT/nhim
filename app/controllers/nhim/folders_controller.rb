@@ -7,6 +7,7 @@ module Nhim
       respond_to do |f|
         f.html { render layout: !request.xhr? }
         f.js
+        f.json { render json: ::Nhim::Serializers::TreeSerializer.as_json(::Nhim::Folder.name_ordering) }
       end
     end
 

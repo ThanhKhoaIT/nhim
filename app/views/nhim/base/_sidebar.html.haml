@@ -19,8 +19,10 @@
       = link_to nhim_deleted_path do
         = image_tag 'nhim/trash.png'
         %span Deleted
-    %li
-      = link_to nhim_folders_path, id: 'sidebar-tree-folder', data: { toggleclass: :show } do
-        = image_tag 'nhim/folders.png'
-        %span Folders
-      = render 'folder_tree'
+    %li{ style: 'position: relative' }
+      = link_to '', '#', id: 'toggle-tree'
+      = link_to nhim_folders_path, data: { remote: nhim_folders_path } do
+        = image_tag 'nhim/home.png'
+        %span Home
+
+  #main-tree{ data: { ajax: nhim_folders_path(:json) } }

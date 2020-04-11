@@ -1,0 +1,56 @@
+.root-tree {
+  float: left;
+  width: 100%;
+  color: $text-color;
+  margin-top: -15px;
+
+  ul {
+    padding-left: 15px;
+    font-size: 15px;
+    display: none;
+
+    &.show { display: block; }
+
+    li {
+      position: relative;
+      float: left;
+      width: 100%;
+
+      a.arrow {
+        position: absolute;
+        top: 4px;
+        left: 7px;
+        opacity: 0.5;
+        width: 10px;
+        height: 10px;
+        padding: 12px;
+        background: url('nhim/arrow.png') no-repeat center center;
+        background-size: 30%;
+        transition: transform 0.1s;
+
+        &.show {
+          transform: rotate(90deg);
+          & ~ ul {
+            display: block;
+          }
+        }
+
+        &:hover + a {
+          background: #FFF;
+        }
+      }
+
+      a.name {
+        float: left;
+        width: 100%;
+        padding: 5px 10px 5px 30px;
+        border-radius: 20px;
+        color: $text-color;
+        &:hover {
+          background: #FFF;
+        }
+      }
+    }
+  }
+
+}

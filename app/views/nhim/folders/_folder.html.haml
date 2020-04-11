@@ -1,5 +1,5 @@
 %li{ data: { itemtype: :folder, id: folder.id, dbclick: nhim_folder_path(folder), starred: folder_is_starred.include?(folder.id).to_s } }
-  .col.icon= image_tag 'nhim/folder.png'
+  .col.icon
   %span.col.name= folder.name
   - if nhim_has_owner?
     %span.col.owner= folder.owner_name

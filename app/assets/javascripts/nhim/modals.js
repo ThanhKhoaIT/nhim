@@ -12,7 +12,7 @@ $(document).delegate('#add-folder-modal', 'shown.bs.modal', function() {
 });
 
 $(document).delegate('.rename-object-modal', 'shown.bs.modal', function() {
-  $('#new_name').focus().select();;
+  $("[name='new_name']").last().focus().select();
 });
 
 // Functions

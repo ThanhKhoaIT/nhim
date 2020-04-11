@@ -7,4 +7,5 @@
 //= require nhim/events
 //= require nhim/actions
 //= require nhim/modals
+//= require nhim/tree
 //= require nhim/base

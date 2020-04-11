@@ -30,7 +30,7 @@ $(document).delegate('[data-toggleclass]', 'click', function(event) {
   $(this).toggleClass($(this).data('toggleclass'));
 });
 
-$(document).delegate('a[data-remote]', 'click', function(event) {
+$(document).delegate('a[data-js]', 'click', function(event) {
   event.preventDefault();
   $.get($(this).attr('href') + '.js');
 });

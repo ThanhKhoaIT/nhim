@@ -12,6 +12,7 @@ module Nhim
     default_scope { where(deleted_at: nil) }
     scope :deleted, -> { unscoped.where.not(deleted_at: nil) }
     scope :in_root, -> { where(parent: nil) }
+    scope :name_ordering, -> { order(:name) }
 
     validates :name, presence: true
 
